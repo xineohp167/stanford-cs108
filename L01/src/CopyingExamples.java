@@ -7,7 +7,7 @@ public class CopyingExamples {
 		p2.x = 15;
 		
 		System.out.println("p1 = " + p1);
-		System.out.println("p2 = " + p1);
+		System.out.println("p2 = " + p2);
 		
 		MyPoint q1 = new MyPoint(5,5);
 		MyPoint q2 = new MyPoint(q1);
@@ -15,7 +15,7 @@ public class CopyingExamples {
 		q2.x = 15;
 		
 		System.out.println("q1 = " + q1);
-		System.out.println("q2 = " + q1);
+		System.out.println("q2 = " + q2);
 	}
 
 }
