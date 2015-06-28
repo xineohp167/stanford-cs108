@@ -33,7 +33,8 @@ public class ArraysExample {
 		System.out.println(Arrays.toString(aS));
 		*/
 		
-		// Testing binarySearch
+		/*
+		 * // Testing binarySearch
 		int[] arrInt = {4, 2, 6, 7, 9, 25, 1};
 		System.out.println(Arrays.toString(arrInt));
 		int ind = Arrays.binarySearch(arrInt, 9);
@@ -51,6 +52,9 @@ public class ArraysExample {
 		// Testing fill
 		Arrays.fill(arrInt1, 0);
 		System.out.println(Arrays.toString(arrInt1));
+		*/
+		
+	
 		
 	}
 }
