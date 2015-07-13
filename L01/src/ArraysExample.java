@@ -54,7 +54,29 @@ public class ArraysExample {
 		System.out.println(Arrays.toString(arrInt1));
 		*/
 		
+		
+		/*String[] aS = {"Bob", "John", "Carl"};
+		System.out.println(Arrays.toString(aS));
+		aS[1] = "newJohn";
+		System.out.println(Arrays.toString(aS));
+		String[] aSCopy = new String[aS.length];
+		System.arraycopy(aS, 0, aSCopy, 0, aS.length);
+		System.out.println(Arrays.toString(aSCopy));
+		aSCopy[1] = "oldJohn";
+		System.out.println(Arrays.toString(aSCopy));
+		System.out.println(Arrays.toString(aS));
+		*/
 	
+		int[] arrInt = {4, 2, 9, 6, 7, 9, 25, 1, 9};
+		System.out.println(Arrays.toString(arrInt));
+		int ind = Arrays.binarySearch(arrInt, 9);
+		System.out.println(ind);
+		System.out.println(Arrays.toString(arrInt));
+		Arrays.sort(arrInt);
+		System.out.println(Arrays.toString(arrInt));
+		ind = Arrays.binarySearch(arrInt, 9);
+		System.out.println(ind);
+		System.out.println(Arrays.toString(arrInt));
 		
 	}
 }
