@@ -47,13 +47,15 @@ public class GenericsExample {
 		rawList = genList; // no warning
 		 */	
 		
-		
+
 		String s = convertInstanceOfObject("string", String.class);
 	    System.out.println(s);
 	    Integer i = convertInstanceOfObject(6, Integer.class);
 	    System.out.println(i);
 	    Integer j = convertInstanceOfObject(new Integer(15), Integer.class);
 	    System.out.println(j);
+	    Double d = convertInstanceOfObject(3.0, Double.class);
+	    System.out.println(d);
 	    String k = convertInstanceOfObject(345435.34, String.class);
 	    System.out.println(k);
 	    
