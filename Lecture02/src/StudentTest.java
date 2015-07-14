@@ -4,28 +4,29 @@ import org.junit.*;
 public class StudentTest {
 
 	@Test
-	public void testCase1() {
+	public void testStudentUnitsAndStress() {
 		Student st = new Student(18);
-		assertEquals(st.getUnits(), 18);
-		assertEquals(st.getStress(), 180);
+		assertEquals(18, st.getUnits());
+		assertEquals(180, st.getStress());
 	}
 	
 	@Test
-	public void testCase2() {
+	public void defaultUnitsShouldBe15() {
 		Student st = new Student();
-		assertEquals(st.getUnits(), 15);
+		assertEquals(15, st.getUnits());
 		st.dropUnits(2);
-		assertEquals(st.getUnits(), 13);
+		assertEquals(13, st.getUnits());
+		
+		// dropUnits ignored if number units < 9
 		st.dropUnits(10);
-		assertEquals(st.getUnits(), 13);
-			// dropUnits ignored if number units < 9
+		assertEquals(13, st.getUnits());
 	}
 	
 	
 // instead of rebuilding everything for each test, we can instead
 // take advantage of instance variables and @Before and @After methods
 // we'll use the testStudent for the next three test cases
-	Student testStudent;
+	private Student testStudent;
 	
 	// this gets called before _every_ test case
 	@Before
@@ -44,7 +45,7 @@ public class StudentTest {
 	// (e.g., testCase1, testCase2, testOne).  
 	@Test
 	public void testOne() {
-		assertEquals(testStudent.getStress(), 200);
+		assertEquals(200, testStudent.getStress());
 		testStudent.dropUnits(8);
 			// setUp gets called again before every test
 			// this change won't carry on to another test

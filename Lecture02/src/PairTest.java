@@ -1,42 +1,43 @@
 import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
 
 public class PairTest {
 
 	@Test
-	public void test1() {
-		Pair<Integer> testPair = new Pair(3,3);
+	public void testContains() {
+		Pair<Integer> testPair = new Pair<Integer>(3,3);
 		
 		assertTrue(testPair.contains(3));
 	}
 
 	@Test
-	public void test2() {
-		Pair<Integer> testPair = new Pair(3,5);
+	public void testSwap() {
+		Pair<Integer> testPair = new Pair<Integer>(3,5);
 		testPair.swap();
 		
-		assertEquals(testPair.getA(),new Integer(5));
-		assertEquals(testPair.getB(),new Integer(3));		
+		assertEquals(new Integer(5), testPair.getA());
+		assertEquals(new Integer(3), testPair.getB());		
 	}
 	
 	Pair<Integer> mainPair;
 	
 	@Before
 	public void setup() {
-		mainPair = new Pair(12,14);
+		mainPair = new Pair<Integer>(12,14);
 	}
 	
 	@Test
-	public void testA() {
+	public void testSwap2() {
 		mainPair.swap();
 		
-		assertEquals(mainPair.getA(),new Integer(14));
-		assertEquals(mainPair.getB(),new Integer(12));		
+		assertEquals(new Integer(14), mainPair.getA());
+		assertEquals(new Integer(12), mainPair.getB());		
 	}
 	
 	@Test
-	public void testB() {
-		assertEquals(mainPair.getA(),new Integer(12));		
+	public void testGet() {
+		assertEquals(new Integer(12), mainPair.getA());		
 	}
 }
