@@ -2,6 +2,9 @@
 package assign1;
 
 import static org.junit.Assert.*;
+
+import java.util.Arrays;
+
 import org.junit.Test;
 
 public class CharGridTest {
@@ -34,8 +37,46 @@ public class CharGridTest {
 		assertEquals(6, cg.charArea('a'));
 		assertEquals(3, cg.charArea('b'));
 		assertEquals(1, cg.charArea('c'));
+		assertEquals(0, cg.charArea('d'));
 	}
 	
-	// TODO Add more tests
+	
+	@Test
+	public void testCharAreaVerticalGrid() {
+		char[][] grid = new char[][]{
+                {'c', 'a', ' '}
+        };
+		CharGrid cg = new CharGrid(grid);
+		
+		assertEquals(1, cg.charArea('a'));
+        assertEquals(1, cg.charArea(' '));
+        assertEquals(1, cg.charArea('c'));
+        assertEquals(0, cg.charArea('z'));
+	}
+	
+	@Test
+	public void testCharAreaVHorizontalGrid() {
+		char[][] grid = new char[][]{
+                {' '},
+                {'b'},
+                {'a'}
+        };
+
+        CharGrid cg = new CharGrid(grid);
+
+        assertEquals(1, cg.charArea(' '));
+        assertEquals(1, cg.charArea('b'));
+        assertEquals(1, cg.charArea('a'));
+        assertEquals(0, cg.charArea('z'));
+	}
+	
+	@Test
+	public void testCharAreaEmptyGrid() {
+		char[][] grid = new char[0][0];
+		CharGrid cg = new CharGrid(grid);
+		
+		assertEquals(0, cg.charArea('a'));
+		assertEquals(0, cg.charArea('b'));
+	}
 	
 }
