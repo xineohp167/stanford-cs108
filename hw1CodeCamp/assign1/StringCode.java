@@ -26,7 +26,21 @@ public class StringCode {
 	 * @return blown up string
 	 */
 	public static String blowup(String str) {
-		return null; // TODO ADD YOUR CODE HERE
+		if (str.length() < 1 ) return str;
+		StringBuilder sb = new StringBuilder();
+		for(int i = 0; i < str.length(); i++){
+			char ch = str.charAt(i);
+			if(Character.isDigit(ch)){
+				int num = Character.getNumericValue(ch);
+				while(num > 0 && i < str.length()-1){
+					sb.append(str.charAt(i+1));
+					num--;
+				}
+			}else{
+				sb.append(ch);
+			}
+		}
+		return sb.toString();
 	}
 	
 	/**
