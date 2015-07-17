@@ -62,7 +62,22 @@ public class StringCode {
 	 * Compute this in linear time using a HashSet. Len will be 1 or more.
 	 */
 	public static boolean stringIntersect(String a, String b, int len) {
-		return false; // TO DO ADD YOUR CODE HERE
+		
+		if(len <= 0) return false;
+		if(len > a.length() || len > b.length()) return false;
+		
+		Set<String> aSubStringSet = new HashSet<String>();
+		for(int iA = 0; (iA + len) < a.length(); iA++ ){
+			String aSubString = a.substring(iA, iA + len);
+			aSubStringSet.add(aSubString);
+		}
+		
+		for(int iB = 0; (iB + len) < b.length(); iB++ ){
+			String bSubString = b.substring(iB, iB + len);
+			if(aSubStringSet.contains(bSubString)) return true;
+		}
+		
+		return false;
 	}
 	
 	

@@ -70,12 +70,14 @@ public class StringCodeTest {
 	}
 
 
+	@Test
 	public void testStringIntersectBasic() {
 
 		assertTrue(StringCode.stringIntersect("abc", "abcd", 2));
 		assertFalse(StringCode.stringIntersect("aa", "bb", 1));
 	}
 
+	@Test
 	public void testStringIntersectMore() {
 		// Edge cases
 		assertEquals(false, StringCode.stringIntersect("aa", "bb", 0));
