@@ -22,14 +22,26 @@ public class CharGrid {
 	 * @return area for given char
 	 */
 	public int charArea(char ch) {
-		/**
-		for(int i = 0; i < grid.length; i++){
-			for(int j = 0; j < grid.height){
-
+		boolean found = false;
+		int maxCol = 0;
+		int maxRow = 0;
+		int minRow = grid.length;
+		int minCol = minRow > 0 ? grid[0].length : 0;
+		for(int row = 0; row < grid.length; row++){
+			for(int col = 0; col < grid[row].length; col++){
+				if(grid[row][col] == ch){
+					found = true;
+					if(minRow > row) minRow = row;
+					if(minCol > col) minCol = col;
+					maxRow = row + 1;
+					maxCol = col + 1;
+				}
 			}
 		}
-		**/
-		return 0; // TODO ADD YOUR CODE HERE
+		if(found){
+			return (maxRow - minRow) * (maxCol - minCol);
+		}
+		return 0;
 	}
 	
 	/**
