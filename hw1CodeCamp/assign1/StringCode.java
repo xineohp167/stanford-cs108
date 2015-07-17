@@ -14,7 +14,19 @@ public class StringCode {
 	 * @return max run length
 	 */
 	public static int maxRun(String str) {
-		return 0; // TODO ADD YOUR CODE HERE
+		//abbcccddbbbxxx
+		int maxRun = 0;
+		int i = 0;
+		while ( i < str.length()) {
+			Character ch = str.charAt(i);
+			int cur = i + 1;
+			while(cur < str.length() && ch == str.charAt(cur)){
+				cur++;
+			}
+			maxRun = maxRun > (cur-i) ? maxRun : (cur - i);
+			i = cur;
+		}
+		return maxRun;
 	}
 
 	
@@ -52,4 +64,6 @@ public class StringCode {
 	public static boolean stringIntersect(String a, String b, int len) {
 		return false; // TO DO ADD YOUR CODE HERE
 	}
+	
+	
 }
