@@ -4,6 +4,7 @@ package assign1;
 
 import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -12,7 +13,9 @@ import java.util.Set;
 import org.junit.Test;
 
 public class TabooTest {
-
+	
+	
+	// Test noFollow ///////////////////////////////////////////////////
 	@Test
 	public void testNoFollowBasic() {
 		Set<Integer> orig = new HashSet<Integer>();
@@ -49,4 +52,52 @@ public class TabooTest {
 		Taboo<String> tbo = new Taboo<String>(a);
 		assertEquals(orig, tbo.noFollow("a"));
 	}
+	
+	
+	//// Test reduce ///////////////////////////////////////////
+	@Test
+    public void reduceBasicTest() {
+        List<String> list = Arrays.asList("a", "c", "a", "b");
+        Taboo<String> taboo = new Taboo<String>(list);
+
+        List<String> reducedList = new ArrayList<String>(Arrays.asList("a", "c", "b", "x", "c", "a"));
+        taboo.reduce(reducedList);
+        List<String> resultList = new ArrayList<String>(Arrays.asList("a", "x", "c"));
+        assertTrue(resultList.equals(reducedList));
+
+    }
+
+    @Test
+     public void reduceAdvancedTest() {
+        List<String> list = Arrays.asList("a", "a");
+        Taboo<String> taboo = new Taboo<String>(list);
+
+        List<String> reducedList = new ArrayList<String>(Arrays.asList("a", "a", "a", "a"));
+        taboo.reduce(reducedList);
+
+        List<String> resultList = new ArrayList<String>(Arrays.asList("a"));
+        assertTrue(resultList.equals(reducedList));
+
+    }
+    @Test
+    public void reduceAdvancedTest2() {
+        List<String> list = Arrays.asList("a");
+        Taboo<String> taboo = new Taboo<String>(list);
+
+        List<String> reducedList = new ArrayList<String>(Arrays.asList("a", "a", "a", "a"));
+        taboo.reduce(reducedList);
+
+        List<String> resultList = new ArrayList<String>(Arrays.asList("a", "a", "a", "a"));
+        assertTrue(resultList.equals(reducedList));
+    }
+
+    @Test
+    public void testReduceEdge() {
+        List<String> rules1 = Arrays.asList("");
+        Taboo<String> t1 = new Taboo<String>(rules1);
+
+        List<String> a = Arrays.asList("");
+        t1.reduce(a);
+        assertTrue(a.equals(Arrays.asList("")));
+    }
 }

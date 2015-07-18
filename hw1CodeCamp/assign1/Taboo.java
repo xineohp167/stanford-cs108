@@ -10,11 +10,25 @@ import java.util.*;
 
 public class Taboo<T> {
 	
+	private final Map<T, HashSet<T>> forbiddens;
+	
 	/**
 	 * Constructs a new Taboo using the given rules (see handout.)
 	 * @param rules rules for new Taboo
 	 */
 	public Taboo(List<T> rules) {
+		forbiddens = new HashMap<T, HashSet<T>>();
+		
+		T key = null;
+		for(T value : rules){
+			if(key != null && value != null){
+				if(!forbiddens.containsKey(key)){
+					forbiddens.put(key, new HashSet<T>());
+				}
+				forbiddens.get(key).add(value);
+			}
+			key = value;
+		}
 	}
 	
 	/**
@@ -24,7 +38,11 @@ public class Taboo<T> {
 	 * @return elements which should not follow the given element
 	 */
 	public Set<T> noFollow(T elem) {
-		 return null; // TODO YOUR CODE HERE
+		 if(forbiddens.containsKey(elem)){
+			 return forbiddens.get(elem);
+		 }else{
+			 return Collections.emptySet();
+		 }
 	}
 	
 	/**
@@ -33,5 +51,19 @@ public class Taboo<T> {
 	 * @param list collection to reduce
 	 */
 	public void reduce(List<T> list) {
+		
+		T current = null;
+		Iterator<T> iter = list.iterator();
+		while(iter.hasNext()){
+			T next = iter.next();
+			if(current != null && next != null 
+					&& forbiddens.containsKey(current)
+					&& forbiddens.get(current).contains(next)){
+				iter.remove();
+			}else{
+				current = next;
+			}
+			
+		}
 	}
 }
