@@ -1,6 +1,7 @@
 package assign1;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import java.util.*;
@@ -33,5 +34,17 @@ public class AppearancesTest {
 		assertEquals(1, Appearances.sameCount(a, Arrays.asList(1, 3, 3, 1, 1)));
 	}
 	
-	// TODO Add more tests
+	@Test
+	public void testSameCountNoMatches() {
+		List<String> a = stringToList("abbccc");
+		List<String> b = stringToList("zzzvvvnnn");
+		assertEquals(0, Appearances.sameCount(a, b));
+	}
+	
+	@Test
+	public void testSameCountEmptyLists() {
+		List<String> a = new ArrayList<String>();
+		List<String> b = new ArrayList<String>();
+		assertEquals(0, Appearances.sameCount(a, b));
+	}
 }
