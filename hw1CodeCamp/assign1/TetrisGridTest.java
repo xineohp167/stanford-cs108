@@ -69,32 +69,29 @@ public class TetrisGridTest {
 	}
 	
 	@Test
-	public void verticalGridShouldNotBeChanged(){
+	public void testVerticalGrid(){
 		boolean[][] before ={
 				{true, false, true, true ,false}
 		};
 		
 		 boolean[][] after = {
-				 {true, false, true, true ,false}
+				 {false, false, false, false ,false}
 		 };
 		 
 		 TetrisGrid tetris = new TetrisGrid(before);
 	     tetris.clearRows();
+	     
 
 	     assertTrue(Arrays.deepEquals(after, tetris.getGrid()));
 	}
 	
 	@Test
-	public void testHorizontalGridShouldBeCleared(){
+	public void testOneTrueGridShouldBeCleared(){
 		boolean[][] before ={
-				{true},
-				{true},
 				{true}
 		};
 		
 		 boolean[][] after = {
-				 {false},
-				 {false},
 				 {false}
 		 };
 		 
@@ -105,7 +102,23 @@ public class TetrisGridTest {
 	}
 	
 	@Test
-	public void testHorizontalGridShouldNotBeCleared(){
+	public void testOneFalseGridShouldNotBeCleared(){
+		boolean[][] before ={
+				{false}
+		};
+		
+		 boolean[][] after = {
+				 {false}
+		 };
+		 
+		 TetrisGrid tetris = new TetrisGrid(before);
+	     tetris.clearRows();
+
+	     assertTrue(Arrays.deepEquals(after, tetris.getGrid()));
+	}
+	
+	@Test
+	public void testHorizontalGridWithFalseShouldNotBeCleared(){
 		boolean[][] before ={
 				{true},
 				{false},
@@ -116,6 +129,26 @@ public class TetrisGridTest {
 				 {true},
 				 {false},
 				 {true}
+		 };
+		 
+		 TetrisGrid tetris = new TetrisGrid(before);
+	     tetris.clearRows();
+
+	     assertTrue(Arrays.deepEquals(after, tetris.getGrid()));
+	}
+	
+	@Test
+	public void testHorizontalGridWithOnlyTruesShouldtBeCleared(){
+		boolean[][] before ={
+				{true},
+				{true},
+				{true}
+		};
+		
+		 boolean[][] after = {
+				 {false},
+				 {false},
+				 {false}
 		 };
 		 
 		 TetrisGrid tetris = new TetrisGrid(before);
