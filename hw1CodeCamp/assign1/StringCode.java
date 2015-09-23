@@ -9,7 +9,7 @@ public class StringCode {
 
 	/**
 	 * Given a string, returns the length of the largest run.
-	 * A a run is a series of adajcent chars that are the same.
+	 * A a run is a series of adjacent chars that are the same.
 	 * @param str
 	 * @return max run length
 	 */
