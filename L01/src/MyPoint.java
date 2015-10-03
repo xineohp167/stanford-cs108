@@ -8,6 +8,7 @@ public class MyPoint {
 		this.y = y;
 	}
 	
+	// Copy constructor
 	public MyPoint(MyPoint p) {
 		this.x = p.x;
 		this.y = p.y;

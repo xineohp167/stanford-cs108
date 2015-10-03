@@ -43,12 +43,6 @@ public class ArraysExample {
 		// Testing sort
 		Arrays.sort(arrInt);
 		System.out.println(Arrays.toString(arrInt));
-		// Testing equals
-		int[] arrInt1 = {1, 2, 3};
-		int[] arrInt2 = {1, 2, 3};
-		int[] arrInt3 = {3, 2, 1};
-		System.out.println(Arrays.equals(arrInt1, arrInt2));
-		System.out.println(Arrays.equals(arrInt1, arrInt3));
 		// Testing fill
 		Arrays.fill(arrInt1, 0);
 		System.out.println(Arrays.toString(arrInt1));
@@ -64,10 +58,17 @@ public class ArraysExample {
 		System.out.println(Arrays.toString(aSCopy));
 		aSCopy[1] = "oldJohn";
 		System.out.println(Arrays.toString(aSCopy));
-		System.out.println(Arrays.toString(aS));
-		*/
+		System.out.println(Arrays.toString(aS));*/
+		
+		// Testing equals
+		int[] arrInt1 = {1, 2, 3};
+		int[] arrInt2 = {1, 2, 3};
+		int[] arrInt3 = {3, 2, 1};
+		System.out.println(Arrays.equals(arrInt1, arrInt2));
+		System.out.println(Arrays.equals(arrInt1, arrInt3));
+		
 	
-		int[] arrInt = {4, 2, 9, 6, 7, 9, 25, 1, 9};
+		/*int[] arrInt = {4, 2, 9, 6, 7, 9, 25, 1, 9};
 		System.out.println(Arrays.toString(arrInt));
 		int ind = Arrays.binarySearch(arrInt, 9);
 		System.out.println(ind);
@@ -76,7 +77,7 @@ public class ArraysExample {
 		System.out.println(Arrays.toString(arrInt));
 		ind = Arrays.binarySearch(arrInt, 9);
 		System.out.println(ind);
-		System.out.println(Arrays.toString(arrInt));
+		System.out.println(Arrays.toString(arrInt));*/
 		
 	}
 }
