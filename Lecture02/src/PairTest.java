@@ -21,7 +21,7 @@ public class PairTest {
 		assertEquals(new Integer(3), testPair.getB());		
 	}
 	
-	Pair<Integer> mainPair;
+	private Pair<Integer> mainPair;
 	
 	@Before
 	public void setup() {

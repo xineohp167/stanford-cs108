@@ -65,6 +65,7 @@ public class StudentTest {
 		
 		assertFalse(testStudent.getStress() < 5);
 		assertEquals(testStudent,newStudent); // calls equals
+		assertNotEquals(new Student(21), testStudent);
 		assertSame(testStudent,newStudent);   // checks for ==
 		assertNotSame(testStudent, new Student(20));
 		assertNotNull(testStudent);
