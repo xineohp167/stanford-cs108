@@ -97,8 +97,8 @@ public class Ingredient implements Comparable<Ingredient> {
 	
 	/**
 	 * Compares the ingredient to the given object for sort order.
-	 * (This is the standard sorting override, implemented here
-	 * since we implement the "Comparable" interface.)
+	 *  (This is the standard sorting override, implemented here
+	 * since we implement the "Comparable" interface.)<br>
 	 * Orders increasing by name, and for the same name, increasing by grams.
 	 * This is the Java 5 version, generic for Comparable<Ingredient>, so
 	 * the arg is type Ingredient.
