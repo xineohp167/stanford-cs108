@@ -1,3 +1,5 @@
+import java.util.Comparator;
+
 // Stock.java
 
 public class Stock implements Comparable<Stock>{
@@ -94,16 +96,12 @@ public class Stock implements Comparable<Stock>{
 	}
 
 	/**
-	 * Gets the total price of the stock
+	 * Gets the total price of the stock.<br>
+	 * The total price is computes as: grams*pricePerGram
 	 * @return the total price of the stock
 	 */
 	public int getTotalPrice() {
 		return totalPrice;
-	}
-
-
-	public void setTotalPrice(int totalPrice) {
-		this.totalPrice = totalPrice;
 	}
 
 
@@ -161,8 +159,41 @@ public class Stock implements Comparable<Stock>{
 			return false;
 		return true;
 	}
+	
+	
+	// Implementing different Comparators
+	
+	public static class StockSortByGrams implements Comparator<Stock> {
+		public int compare(Stock a, Stock b) {
+			// trick: form the neg/0/pos by subtraction
+			return (a.getGrams() - b.getGrams());
+		}
+	}
+	
+	public static class StockSortByPricePerGram implements Comparator<Stock> {
+		public int compare(Stock a, Stock b) {
+			// trick: form the neg/0/pos by subtraction
+			return (a.getPricePerGram() - b.getPricePerGram());
+		}
+	}
+	
+	public static class StockSortByTotalPrice implements Comparator<Stock> {
+		public int compare(Stock a, Stock b) {
+			// trick: form the neg/0/pos by subtraction
+			return (a.getTotalPrice() - b.getTotalPrice());
+		}
+	}
+	
+	// Another option is to use static method
+	public static Comparator<Stock> StockSortByName = new Comparator<Stock>(){
 
-	
-	
+		@Override
+		public int compare(Stock o1, Stock o2) {
+			return o1.getName().compareToIgnoreCase(o2.getName());
+		}
+		
+	};
 
 }
+
+
