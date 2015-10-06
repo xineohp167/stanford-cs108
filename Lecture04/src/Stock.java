@@ -184,7 +184,7 @@ public class Stock implements Comparable<Stock>{
 		}
 	}
 	
-	// Another option is to use static method
+	// Another option is to use public static field of Comparator
 	public static Comparator<Stock> StockSortByName = new Comparator<Stock>(){
 
 		@Override
