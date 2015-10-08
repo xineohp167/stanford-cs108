@@ -73,7 +73,6 @@ public class TetrisGridTest {
 		boolean[][] before ={
 				{true, false, true, true ,false}
 		};
-		
 		 boolean[][] after = {
 				 {false, false, false, false ,false}
 		 };
