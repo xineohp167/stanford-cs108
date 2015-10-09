@@ -10,12 +10,9 @@ public class Appearances {
 	 * @return number of same-appearance elements
 	 */
 	public static <T> int sameCount(Collection<T> a, Collection<T> b) {
-		Map<T, Integer> aMap = new HashMap<T, Integer>();
-		Map<T, Integer> bMap = new HashMap<T, Integer>();
-		
-		// Create a map of each element and its appearances in a
-		calculateAppearances(a, aMap);
-		calculateAppearances(b, bMap);
+		// Create a map of each element and its appearances in both collections
+		Map<T, Integer> aMap = calculateAppearances(a);
+		Map<T, Integer> bMap = calculateAppearances(b);
 		
 		int result = 0;
 		
@@ -30,11 +27,12 @@ public class Appearances {
 	}
 	
 	/**
-	 * Calculate and fill the Map<T, Integer> of each element T and its appearances (Integer) in the collection a
+	 * Create the Map<T, Integer> of each element T and calculate its appearances (Integer) in the collection a
 	 * @param a the collection
-	 * @param aMap the map
+	 * @return the HashMap<T, Integer> of element T and its appearances in the collection a
 	 */
-	private static <T> void calculateAppearances(Collection<T> a, Map<T, Integer> aMap){
+	private static <T> Map<T, Integer> calculateAppearances(Collection<T> a){
+		Map<T, Integer> aMap = new HashMap<T, Integer>();
 		for(T elem : a){
 			if(aMap.containsKey(elem)){
 				aMap.put(elem, (aMap.get(elem) + 1));
@@ -42,6 +40,7 @@ public class Appearances {
 				aMap.put(elem, 1);
 			}
 		}
+		return aMap;
 		
 	}
 }
