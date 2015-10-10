@@ -48,7 +48,6 @@ public class TabooTest {
 		Set<String> orig = new HashSet<String>();
 		orig.add("b");
 		orig.add("c");
-		
 		List<String> a = Arrays.asList("a", "c", "a", "b");
 		Taboo<String> tbo = new Taboo<String>(a);
 		assertEquals(orig, tbo.noFollow("a"));
