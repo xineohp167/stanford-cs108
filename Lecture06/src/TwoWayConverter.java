@@ -12,6 +12,7 @@ public class TwoWayConverter extends JFrame implements ActionListener {
 	JButton convertToDollarsBtn;
 	
 	public TwoWayConverter() {
+		super("TwoWayConverter");
 		dollarField = new JTextField(8);
 		poundField = new JTextField(8);
 		
