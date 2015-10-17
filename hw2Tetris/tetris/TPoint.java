@@ -9,7 +9,7 @@ package tetris;
  We'll allow public access to x/y, so this
  is not an object really.
  */
-public class TPoint {
+public class TPoint implements Comparable<TPoint> {
 	public int x;
 	public int y;
 
@@ -44,4 +44,59 @@ public class TPoint {
 	public String toString() {
 		return "(" + x + "," + y + ")";
 	}
+
+	
+	/**
+	 * Compare two points first for x and after that for y.
+	 * @param o the other point
+	 * @return -1/0/1 based on the order
+	 */
+	@Override
+	public int compareTo(TPoint o) {
+		if(this.x < o.x){
+			return -1;
+		}else if(this.x > o.x){
+			return 1;
+		} else if(this.y < o.y){
+			return -1;
+		} else if(this.y > o.y){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+	
+	/**
+	 * Immutable method that returns a new TPoint with swapped x and y
+	 * @return new TPoint(y, x)
+	 */
+	public TPoint swapped(){
+		return new TPoint(y, x);
+	}
+	
+	/**
+	 * Immutable method that returns a new TPoint which is the sum of this point and the addPoint
+	 * @param addPoint the point to add
+	 * @return new TPoint which is the sum of the points
+	 */
+	public TPoint translated(TPoint addPoint){
+		return new TPoint(this.x + addPoint.x, this.y + addPoint.y);
+	}
+	
+	
+	/**
+	 * Returns the new rotated point, computed it on formula:<br>
+	 * x' = x*cos(theta) - y*sin(theta)<br>
+	 * y' = x*sin(theta) + y*cos(theta)<br>
+	 * @param angleInRadians the angle of rotation
+	 * @return new rotated point
+	 */
+    public TPoint rotated(double angleInRadians)
+    {
+            double cos = Math.cos(angleInRadians), sin = Math.sin(angleInRadians);
+            double rotatedX = cos * x - sin*y,
+                       rotatedY = sin * x + cos*y;
+            return new TPoint((int)Math.round(rotatedX),
+                                              (int)Math.round(rotatedY));
+    }
 }
