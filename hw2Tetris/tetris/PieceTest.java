@@ -145,5 +145,37 @@ public class PieceTest {
 //		System.out.println(pieces[Piece.L1].fastRotation());
 //		System.out.println(pieces[Piece.L1].fastRotation().fastRotation());
 	}
+	
+	 private int numberOfUniqueNexts(Piece piece)
+     {
+             int count = 1;
+             for (Piece next = piece.fastRotation(); next != piece; next = next.fastRotation())
+                     count++;
+             return count;
+     }
+     
+	 @Test
+     public void testFastRotation() {
+             Piece[] pieces = Piece.getPieces();
+             Piece square = pieces[5];
+             // Check size of pyr piece
+             assertSame(square, square.fastRotation());
+             
+             //this is a relatively thorough test of the rotation code
+             assertEquals(1, numberOfUniqueNexts(pieces[Piece.SQUARE]));
+             assertEquals(4, numberOfUniqueNexts(pieces[Piece.PYRAMID]));
+             assertEquals(2, numberOfUniqueNexts(pieces[Piece.STICK]));
+             assertEquals(4, numberOfUniqueNexts(pieces[Piece.L1]));
+             assertEquals(4, numberOfUniqueNexts(pieces[Piece.L2]));
+             assertEquals(2, numberOfUniqueNexts(pieces[Piece.S1]));
+             assertEquals(2, numberOfUniqueNexts(pieces[Piece.S2]));
+             assertSame(pieces, Piece.getPieces());
+     }
+     
+     @Test
+     public void testRotationMore() {
+             assertEquals(pyr4, pyr4);
+             assertEquals(pyr1,pyr1.computeNextRotation().computeNextRotation().computeNextRotation().computeNextRotation());
+     }
 
 }
