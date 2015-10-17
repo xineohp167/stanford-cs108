@@ -264,7 +264,30 @@ public class Piece {
 		return array;
 	}
 
-	
+	@Override
+    public String toString(){
+        String result = "";
+        boolean [][] grid = new boolean[height][width];
+
+        for(TPoint p : body)
+            grid[p.y][p.x]=true;
+        //System.out.println(Arrays.deepToString(grid));
+
+        for(int i =0; i< height;i++){
+            String line = "\n";
+
+            for(int j = 0; j < width;j++)
+                if(grid[i][j])
+                    line+="+";
+                else
+                    line+= " ";
+
+            result = line + result;
+
+        }
+
+        return result;
+    }
 
 
 }
