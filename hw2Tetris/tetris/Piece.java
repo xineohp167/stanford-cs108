@@ -35,7 +35,35 @@ public class Piece {
 	 Makes its own copy of the array and the TPoints inside it.
 	*/
 	public Piece(TPoint[] points) {
-		// YOUR CODE HERE
+		// sort the points so the equals method should be more easy
+		Arrays.sort(points);
+		
+		// Instantiate body
+		this.body = points;
+		
+		// Instantiate width and height
+		int width = 0;
+		int height = 0; 
+		
+		for(TPoint point : points){
+			if(width <= point.x) width = point.x + 1;
+			if(height <= point.y) height = point.y + 1;
+		}
+		this.width = width;
+		this.height = height;
+		
+		// Instantiate skirt
+		int[] skirt = new int[width];
+		Arrays.fill(skirt, height);
+		
+		for(TPoint point : points){
+			if(skirt[point.x] > point.y){
+				skirt[point.x] = point.y;
+			}
+		}
+		
+		this.skirt = skirt;
+		
 	}
 	
 
@@ -88,7 +116,11 @@ public class Piece {
 	 rotated from the receiver.
 	 */
 	public Piece computeNextRotation() {
-		return null; // YOUR CODE HERE
+		TPoint[] newBody = new TPoint[this.body.length];
+		for(int i =0; i <newBody.length; i++){
+			newBody[i] = new TPoint(this.height -1 - this.body[i].y, this.body[i].x);
+		}
+		return new Piece(newBody);
 	}
 
 	/**
@@ -120,8 +152,9 @@ public class Piece {
 		if (!(obj instanceof Piece)) return false;
 		Piece other = (Piece)obj;
 		
-		// YOUR CODE HERE
-		return true;
+		// We have sort the body in the constructor, so we
+		// can use Arrays.equals
+		return Arrays.equals(this.body, other.body);
 	}
 
 
@@ -187,10 +220,24 @@ public class Piece {
 	 to the first piece.
 	*/
 	private static Piece makeFastRotations(Piece root) {
-		return null; // YOUR CODE HERE
+		root.next = recursiveFastRotations(root, root);
+		return root;
 	}
 	
 	
+
+	private static Piece recursiveFastRotations(Piece root, Piece nextRotation) {
+		Piece currPosition = nextRotation.computeNextRotation();
+        if (currPosition.equals(root)) {
+            return root;
+        }else {
+            currPosition.next = recursiveFastRotations(root, currPosition);
+            return currPosition;
+        }
+	}
+
+
+
 
 	/**
 	 Given a string of x,y pairs ("0 0	0 1 0 2 1 0"), parses
