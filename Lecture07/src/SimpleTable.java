@@ -16,9 +16,9 @@ public class SimpleTable {
 			// IMPORTANT create a JScrollPane using the table
 		
 		// add in the following messiness if you want JScrollPane sized for the table
-		// Dimension sz = t.getPreferredSize();
-		// Dimension headerSz = t.getTableHeader().getPreferredSize();
-		// sp.setPreferredSize(new Dimension(sz.width,sz.height + headerSz.height));
+//		 Dimension sz = t.getPreferredSize();
+//		 Dimension headerSz = t.getTableHeader().getPreferredSize();
+//		 sp.setPreferredSize(new Dimension(sz.width,sz.height + headerSz.height));
 
 		f.add(sp);
 		
