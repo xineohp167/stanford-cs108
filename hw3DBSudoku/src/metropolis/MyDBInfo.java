@@ -1,4 +1,4 @@
-package assign3;
+package metropolis;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
