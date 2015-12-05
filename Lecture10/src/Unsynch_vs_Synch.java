@@ -38,6 +38,7 @@ public class Unsynch_vs_Synch {
 			new TestListThread().start();
 		}
 		
+		
 		try {
 			latch.await();
 		} catch (InterruptedException e) {
