@@ -1,35 +1,29 @@
 package assign4;
 
-import java.math.BigDecimal;
-
 public class Account {
 	private int id;
-	private BigDecimal balance;
-	private int numOfTransactions;
-	
-	
-	public Account(int id, BigDecimal balance, int numOfTransactions) {
+	private int balance;
+	private int numTransactions;
+
+	public Account(int id, int balance, int numTransactions) {
 		this.id = id;
 		this.balance = balance;
-		this.numOfTransactions = numOfTransactions;
+		this.numTransactions = numTransactions;
 	}
-
 
 	@Override
 	public String toString() {
 		return "Account [id=" + id + ", balance=" + balance
-				+ ", numOfTransactions=" + numOfTransactions + "]";
+				+ ", numTransactions=" + numTransactions + "]";
 	}
 
-
-	
-	public synchronized void withdraw(Transaction tr){
-		this.balance.subtract(tr.getAmount());
-		this.numOfTransactions++;
+	public synchronized void inc(int money) {
+		balance += money;
+		numTransactions++;
 	}
-	
-	public synchronized void deposit(Transaction tr){
-		this.balance.add(tr.getAmount());
-		this.numOfTransactions++;
+
+	public synchronized void dec(int money) {
+		balance -= money;
+		numTransactions++;
 	}
 }

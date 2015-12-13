@@ -1,34 +1,29 @@
 package assign4;
 
-import java.math.BigDecimal;
-
 public class Transaction {
-	private final int from;
-	private final int to;
-	private final BigDecimal amount;
-	
-	
-	public Transaction(int from, int to, BigDecimal amount) {
-		this.from = from;
-		this.to = to;
+	final int fromId;
+	final int toId;
+	final int amount;
+
+	public Transaction(int fromId, int toId, int amount) {
+		this.fromId = fromId;
+		this.toId = toId;
 		this.amount = amount;
 	}
 
-
-	public int getFrom() {
-		return from;
+	public Transaction(int[] trans) {
+		this(trans[0], trans[1], trans[2]);
 	}
 
-
-	public int getTo() {
-		return to;
+	public int getSrcId() {
+		return fromId;
 	}
 
+	public int getDesId() {
+		return toId;
+	}
 
-	public BigDecimal getAmount() {
+	public int getAmount() {
 		return amount;
 	}
-	
-	
-
 }
