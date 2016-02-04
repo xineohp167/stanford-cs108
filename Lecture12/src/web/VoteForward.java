@@ -35,15 +35,22 @@ public class VoteForward extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int age = Integer.parseInt(request.getParameter("age"));
-		
-		if (age >= 18) {
-			RequestDispatcher dispatch = request.getRequestDispatcher("canvote.html");
-			dispatch.forward(request, response);
-		} else {
+		try {
+			int age = Integer.parseInt(request.getParameter("age"));
+			
+			if (age >= 18) {
+				RequestDispatcher dispatch = request.getRequestDispatcher("canvote.html");
+				dispatch.forward(request, response);
+			} else {
+				RequestDispatcher dispatch = request.getRequestDispatcher("noteligible.html");
+				dispatch.forward(request, response);
+			}
+			
+		} catch (Exception e) {
 			RequestDispatcher dispatch = request.getRequestDispatcher("noteligible.html");
 			dispatch.forward(request, response);
 		}
+		
 		
 	}
 

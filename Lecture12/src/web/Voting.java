@@ -37,13 +37,18 @@ public class Voting extends HttpServlet {
 		out.println("</head>");
 		out.println("<body>");
 		
-		int age = Integer.parseInt(request.getParameter("age"));
-		
-		if (age >= 18) {
-			out.println("<h1>Can Vote!</h1>");
-		} else {
+		int age;
+		try {
+			age = Integer.parseInt(request.getParameter("age"));
+			if (age >= 18) {
+				out.println("<h1>Can Vote!</h1>");
+			} else {
+				out.println("<h1>Not Eligible</h1>");
+			}
+		} catch (Exception e) {
 			out.println("<h1>Not Eligible</h1>");
 		}
+		
 		
 		out.println("</body>");
 		out.println("</html>");
