@@ -3,10 +3,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8" /><title>Insert title here</title>
+<meta charset="UTF-8" /><title>JSP Example</title>
 </head>
+
 <body>
 <h1>JSP Form Example</h1>
-The Message for Today is <b><u><%= request.getParameter("data") %></u></b>
+The Message for Today is <b><%= request.getParameter("data") %></b>
 </body>
 </html>

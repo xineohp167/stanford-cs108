@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +7,6 @@
 <title>A JSP Example</title>
 </head>
 <body>
-It is currently <%= new java.util.Date() %>
+	<h3>It is currently <%=new java.util.Date()%></h3>
 </body>
-</html>
+</html> 

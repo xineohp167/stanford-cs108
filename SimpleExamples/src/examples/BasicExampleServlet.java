@@ -39,7 +39,7 @@ public class BasicExampleServlet extends HttpServlet {
 		out.println("<title>A Basic Servlet Example</title>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("It is currently " + new Date());
+		out.println("It is currently: " + new Date());
 		out.println("</body>");
 		out.println("</html>");
 	}

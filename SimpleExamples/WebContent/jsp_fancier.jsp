@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,31 +7,45 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
-java.util.Date now = new java.util.Date();
+	<%
+		java.util.Date now = new java.util.Date();
+		java.util.Calendar calendar = java.util.Calendar.getInstance();
+		calendar.setTime(now);
 
-String comment = "";
+		String comment = "";
 
-switch(now.getMonth()) {
-case 0: case 1:
-	comment = "very cold"; break;
-case 2: case 3: case 4:
-	comment = "getting warmer"; break;
-case 5: case 6: case 7:
-	comment = "summer!"; break;
-case 8:
-	comment = "school time"; break;
-case 9:
-	comment = "getting colder"; break;
-case 10:
-	comment = "Thanksgiving"; break;
-case 11:
-	comment = "break time"; break;
-};
+		switch (calendar.get(java.util.Calendar.MONTH)) {
+		case 0:
+		case 1:
+			comment = "very cold";
+			break;
+		case 2:
+		case 3:
+		case 4:
+			comment = "getting warmer";
+			break;
+		case 5:
+		case 6:
+		case 7:
+			comment = "summer!";
+			break;
+		case 8:
+			comment = "school time";
+			break;
+		case 9:
+			comment = "getting colder";
+			break;
+		case 10:
+			comment = "Thanksgiving";
+			break;
+		case 11:
+			comment = "break time";
+			break;
+		}
+		;
 
-out.println("It is " + comment);
-
-%>
+		out.println("It is " + comment);
+	%>
 
 </body>
 </html>
