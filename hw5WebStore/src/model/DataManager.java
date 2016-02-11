@@ -62,7 +62,7 @@ public class DataManager {
         Connection con = (Connection) MyDB.getConnection();
         try {
             String query = "SELECT * FROM products";
-            if(idSet!=null) {
+            if(idSet!=null && !idSet.isEmpty()) {
                 query+=" WHERE productid IN (";
                 String ids = "";
                 for(String id:idSet){

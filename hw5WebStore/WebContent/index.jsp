@@ -16,7 +16,7 @@
 
 <%!
 public String liDecorator(String id, String name){
-	return "<li><a href=\"show-product.jsp?id=" + id + "\">" + name + "</a></li>";
+	return "<li><a href=\"showProduct.jsp?id=" + id + "\">" + name + "</a></li>";
 }
 %>
 
